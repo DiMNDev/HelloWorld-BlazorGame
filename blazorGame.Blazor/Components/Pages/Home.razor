@@ -1,7 +1,38 @@
 ﻿@page "/"
-
+<link rel="stylesheet" href="Home.css">
 <PageTitle>Home</PageTitle>
 
 <h1>Hello, world!</h1>
 
-Welcome to your new app.
+<div class="dpad">
+    <div class="left dButton" @onclick="()=>MoveLeft()"></div>
+    <div class="up dButton" @onclick="()=>MoveUp()"></div>
+    <div class="down dButton" @onclick="()=>MoveDown()"></div>
+    <div class="right dButton" @onclick="()=>MoveRight()"></div>
+</div>
+
+<div style="position: absolute; top: @(TopPosition)%; left: @(LeftPosition)%;">
+    <img src="/world.svg" />
+</div>
+
+@code {
+    int TopPosition = 50;
+    int LeftPosition = 50;
+
+    void MoveLeft()
+    {
+        LeftPosition -= 10;
+    }
+    void MoveRight()
+    {
+        LeftPosition += 10;
+    }
+    void MoveUp()
+    {
+        TopPosition -= 10;
+    }
+    void MoveDown()
+    {
+        TopPosition += 10;
+    }
+}
